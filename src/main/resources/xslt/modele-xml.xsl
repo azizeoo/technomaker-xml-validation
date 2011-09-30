@@ -6,9 +6,9 @@
 	<xsl:key name="auteur" match="/messages/message/auteur/text()"
 		use="." />
 	<xsl:template match="/">
-		<auteurs>
+		<xsl:element name="auteurs">
 			<xsl:apply-templates select="//messages" />
-		</auteurs>
+		</xsl:element>
 	</xsl:template>
 
 
@@ -18,21 +18,24 @@
 		<xsl:for-each select="/messages/message/auteur/text()">
 			<xsl:variable name="temp" select="." />
 			<xsl:if test="generate-id() = generate-id(key('auteur',.)[1])">
-				<auteur>
-					<nom>
+				<xsl:element name="auteur">
+					<xsl:element name="nom">
 						<xsl:value-of select="." />
-					</nom>
+					</xsl:element>
 					<xsl:for-each select="/messages/message[auteur = $temp]">
-						<message>
-							<contenu>
+						<xsl:element name="message">
+							<xsl:attribute name="reference"><xsl:value-of
+								select="@reference" />
+						</xsl:attribute>
+							<xsl:element name="contenu">
 								<xsl:value-of select="contenu" />
-							</contenu>
-							<date>
+							</xsl:element>
+							<xsl:element name="date">
 								<xsl:value-of select="date" />
-							</date>
-						</message>
+							</xsl:element>
+						</xsl:element>
 					</xsl:for-each>
-				</auteur>
+				</xsl:element>
 			</xsl:if>
 		</xsl:for-each>
 	</xsl:template>

@@ -18,10 +18,18 @@
 				</h3>
 				<table border="1">
 					<tr>
-						<td><b>Référence</b></td>
-						<td><b>Auteur</b></td>
-						<td><b>Date</b></td>
-						<td><b>Contenu</b></td>
+						<td>
+							<b>Référence</b>
+						</td>
+						<td>
+							<b>Auteur</b>
+						</td>
+						<td>
+							<b>Date</b>
+						</td>
+						<td>
+							<b>Contenu</b>
+						</td>
 					</tr>
 					<xsl:apply-templates select="messages" />
 				</table>

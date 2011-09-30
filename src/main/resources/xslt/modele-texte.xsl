@@ -4,7 +4,9 @@
 
 	<xsl:output method="text" indent="yes" />
 
-	<xsl:variable name="separateur">-|-</xsl:variable>
+	<xsl:variable name="separateur">
+		-|-
+	</xsl:variable>
 	<xsl:variable name="nLigne"><![CDATA[<br />]]></xsl:variable>
 	<xsl:template match="/">
 		<xsl:text> MESSAGES -|- AUTEURS -|- DATES </xsl:text>
